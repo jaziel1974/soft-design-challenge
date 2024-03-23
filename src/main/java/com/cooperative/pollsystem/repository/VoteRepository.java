@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface VoteRepository extends CrudRepository<Vote, String>{
-    @Query("{'pollSessionId': ?0}")
-    Vote findByPollSessionId(String pollSessionId);
+    @Query("{'pollSession.Id': ?0, 'id': ?1}")
+    Vote findByPollSessionId(String pollSessionId, String id);
 
 }
