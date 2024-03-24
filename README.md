@@ -34,7 +34,7 @@ Regarding the extra task two (how to test performance of the application), an ex
 ### Extra task three
 Finally, answering the extra task three, the best approach to version RestFul apis is providing a /v<<n>> between the base url and name of the service. Ideally, versioning occurs when, somehow, the contract data is broken. When, for example, a api starts demanding a new mandatory field that it didn't before. Versioning is important to avoid breaking the clients that are already using the api. The versioning should be done in a way that the clients can choose to migrate to the new version when they are ready. 
 
-### How to run the application
+### How to run the application locally
 Having a docker and docker-compose installed, just run the following command in the root folder of the project (linux):
 
 ```
@@ -44,3 +44,7 @@ bash ./install.sh
 
 After running the command, all the apis will be available at http://localhost:8080
 You also can find the PostmanCollection folder at the root folder with a postman collection to test the apis.
+
+### How to run the application remotely
+Alternatively, if you change and commit anything the Google Cloud based version will be automatically redeployed.
+In order to access the cloud based apis one must access the address
