@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: Mongo2024!
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  spring-app:
+    image: softdesignchallenge:latest
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URL: mongodb://root:root2024@localhost:27017/softdesignchallenge
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
+    driver: local
