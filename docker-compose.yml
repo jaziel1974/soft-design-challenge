@@ -6,22 +6,21 @@ services:
     container_name: "mongo"
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mongoadmin
-      MONGO_INITDB_ROOT_PASSWORD: Mongo2024!
+      MONGO_INITDB_DATABASE: "pollsystem"
+      MONGO_INITDB_ROOT_USERNAME: "mongoadmin"
+      MONGO_INITDB_ROOT_PASSWORD: "Mongo2024"
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./data/db:/data
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
 
   spring-app:
-    image: softdesignchallenge:latest
+    image: pollsystem:latest
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URL: mongodb://root:root2024@localhost:27017/softdesignchallenge
+      SPRING_DATA_MONGODB_URL: mongodb://mongoadmin:Mongo2024@localhost:27017/pollsystem
     depends_on:
       - mongo
-
-volumes:
-  mongo-data:
-    driver: local

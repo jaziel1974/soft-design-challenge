@@ -23,7 +23,7 @@ public class VoteService {
     private final PollSessionRepository pollSessionRepository;
     private final CpfValidatorClient cpfValidatorClient;
     @Value("${cpf-validator.validate-cpf}")
-    private static boolean IS_VALIDATE_CPF_ENABLED;
+    private boolean IS_VALIDATE_CPF_ENABLED;
 
     public VoteService(VoteRepository voteRepository, PollSessionRepository pollSessionRepository, CpfValidatorClient cpfValidatorClient) {
         this.voteRepository = voteRepository;
