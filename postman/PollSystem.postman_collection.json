@@ -13,12 +13,28 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/agenda/677ca836-8aeb-404d-a2f1-fd914b673e62",
-					"protocol": "http",
+					"raw": "{{url}}/agenda/677ca836-8aeb-404d-a2f1-fd914b673e62",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
+					"path": [
+						"agenda",
+						"677ca836-8aeb-404d-a2f1-fd914b673e62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agenda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/agenda/677ca836-8aeb-404d-a2f1-fd914b673e62",
+					"host": [
+						"{{url}}"
+					],
 					"path": [
 						"agenda",
 						"677ca836-8aeb-404d-a2f1-fd914b673e62"
@@ -34,7 +50,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \r\n    \"title\": \"election 2\",\r\n    \"pollDate\": \"23/03/2024 10:40:00\"\r\n\r\n}",
+					"raw": "{\r\n    \r\n    \"title\": \"election 5\",\r\n    \"pollDate\": \"25/03/2024 11:34:00\",\r\n    \"pollDuration\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,12 +58,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/agenda",
-					"protocol": "http",
+					"raw": "{{url}}/agenda",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"agenda"
 					]
@@ -61,15 +75,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/pollSession/63502226-40b7-4e98-b2eb-d92870084461",
-					"protocol": "http",
+					"raw": "{{url}}/pollSession/b0e248c1-f441-4f0f-b55d-be4afeee248b",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"pollSession",
-						"63502226-40b7-4e98-b2eb-d92870084461"
+						"b0e248c1-f441-4f0f-b55d-be4afeee248b"
 					]
 				}
 			},
@@ -81,19 +93,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/pollSession?agendaId=63502226-40b7-4e98-b2eb-d92870084461",
-					"protocol": "http",
+					"raw": "{{url}}/pollSession?agendaId=9d5c8724-3634-4c08-9c31-727e39f56cf8",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"pollSession"
 					],
 					"query": [
 						{
 							"key": "agendaId",
-							"value": "63502226-40b7-4e98-b2eb-d92870084461"
+							"value": "9d5c8724-3634-4c08-9c31-727e39f56cf8"
 						}
 					]
 				}
@@ -107,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \r\n    \"agendaId\": \"677ca836-8aeb-404d-a2f1-fd914b673e62\",\r\n    \"pollDuration\": 10\r\n\r\n}",
+					"raw": "{\r\n    \r\n    \"agendaId\": \"0be8bb69-2f16-4299-8b97-d147d772f62e\"\r\n    //\"pollDuration\": 10\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,12 +125,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/pollSession",
-					"protocol": "http",
+					"raw": "{{url}}/pollSession",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"pollSession"
 					]
@@ -135,7 +143,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \r\n    \"vote\": true,\r\n    \"pollSessionId\": \"63502226-40b7-4e98-b2eb-d92870084461\"\r\n\r\n}",
+					"raw": "{\r\n    \"id\": \"12345678903\",\r\n    \"vote\": true,\r\n    \"pollSessionId\": \"58250ada-72b4-4225-9554-88dbc9381bde\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -143,12 +151,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/vote",
-					"protocol": "http",
+					"raw": "{{url}}/vote",
 					"host": [
-						"localhost"
+						"{{url}}"
 					],
-					"port": "8080",
 					"path": [
 						"vote"
 					]

@@ -42,7 +42,7 @@ public class PollSessionService {
         }
 
         if (pollSession.getPollDuration() == null) {
-            pollSession.setPollDuration(1);
+            pollSession.setPollDuration(pollSession.getAgenda().getPollDuration());
         }
         pollSession.setValidUntil(LocalDateTime.now().plusMinutes(pollSession.getPollDuration()));
 

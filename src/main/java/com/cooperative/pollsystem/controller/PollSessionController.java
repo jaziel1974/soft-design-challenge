@@ -25,13 +25,19 @@ public class PollSessionController {
     }
 
     @PostMapping
-    public PollSessionResponse create(@RequestBody PollSessionRequest pollSessionRequest) {
+    public ResponseEntity<Object> create(@RequestBody PollSessionRequest pollSessionRequest) {
+        try {
         PollSession pollSession = new PollSession();
         pollSession.setId(UUID.randomUUID().toString());
         pollSession.setPollDuration(pollSessionRequest.pollDuration());
         pollSessionService.populateAgenda(pollSession, pollSessionRequest.agendaId());
-        PollSession createdPollSession = pollSessionService.create(pollSession);
-        return PollSessionMapper.toResponse(createdPollSession);
+        PollSessionResponse createdPollSession = PollSessionMapper.toResponse(pollSessionService.create(pollSession));
+            return new ResponseEntity<>(createdPollSession, null, 200);
+        }
+        catch (BusinessException e){
+            logger.error("Error creating poll session", e);
+            return new ResponseEntity<>(e.getMessage(), null, 400);
+        }
     }
 
     @GetMapping("/{id}")

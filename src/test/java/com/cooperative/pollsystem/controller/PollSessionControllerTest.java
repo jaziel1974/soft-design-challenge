@@ -87,7 +87,7 @@ class PollSessionControllerTest {
                 .uri("/pollSession")
                 .bodyValue(new PollSessionRequest(createdAgenda.get().id(), pollDuration))
                 .exchange()
-                .expectStatus().is5xxServerError();
+                .expectStatus().is4xxClientError();
     }
 
     @Test
