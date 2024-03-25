@@ -98,6 +98,6 @@ class VoteControllerTest {
                 .uri("/vote")
                 .bodyValue(new VoteRequest(voteId, voteValue, createdPoll.get().id()))
                 .exchange()
-                .expectStatus().is5xxServerError();
+                .expectStatus().isBadRequest();
     }
 }

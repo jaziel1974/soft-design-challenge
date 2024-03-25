@@ -12,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/agenda")
 public class AgendaController {
@@ -21,6 +24,14 @@ public class AgendaController {
 
     public AgendaController(AgendaService agendaService) {
         this.agendaService = agendaService;
+    }
+
+    @GetMapping()
+    public List<AgendaResponse> find() {
+        Iterable<Agenda> agendas = agendaService.find();
+        List<AgendaResponse> agendasResponse = new ArrayList<>();
+        agendas.forEach(agenda -> agendasResponse.add(AgendaMapper.toResponse(agenda)));
+        return agendasResponse;
     }
 
     @GetMapping("/{id}")

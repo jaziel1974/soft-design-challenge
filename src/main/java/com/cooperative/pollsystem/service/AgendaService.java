@@ -50,4 +50,8 @@ public class AgendaService {
             return new GenericErrorException("Agenda not found");
         });
     }
+
+    public Iterable<Agenda> find() {
+        return agendaRepository.findAll();
+    }
 }

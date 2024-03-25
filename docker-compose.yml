@@ -4,7 +4,7 @@ services:
   mongo:
     image: mongo:latest
     container_name: "mongo"
-    restart: always
+    restart: unless-stopped
     environment:
       MONGO_INITDB_DATABASE: "pollsystem"
       MONGO_INITDB_ROOT_USERNAME: "mongoadmin"
@@ -12,7 +12,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - ./data/db:/data
+      - mongodata:/data/db
       - ./init-mongo.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
 
@@ -24,3 +24,6 @@ services:
       - SPRING_PROFILES_ACTIVE=cloud
     depends_on:
       - mongo
+
+volumes:
+  mongodata:
