@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "7c89522d-cac8-43cc-847d-01f0f7871bd5",
+		"name": "PollSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10706236",
+		"_collection_link": "https://planetary-satellite-304858.postman.co/workspace/rsc-23~21adce60-05c2-4fd4-805c-7c242cc0d313/collection/10706236-7c89522d-cac8-43cc-847d-01f0f7871bd5?action=share&source=collection_link&creator=10706236"
+	},
+	"item": [
+		{
+			"name": "Agenda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agenda/677ca836-8aeb-404d-a2f1-fd914b673e62",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda",
+						"677ca836-8aeb-404d-a2f1-fd914b673e62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"title\": \"election 2\",\r\n    \"pollDate\": \"23/03/2024 10:40:00\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agenda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PollSession",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pollSession/63502226-40b7-4e98-b2eb-d92870084461",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pollSession",
+						"63502226-40b7-4e98-b2eb-d92870084461"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PollSession GETBYAGENDA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pollSession?agendaId=63502226-40b7-4e98-b2eb-d92870084461",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pollSession"
+					],
+					"query": [
+						{
+							"key": "agendaId",
+							"value": "63502226-40b7-4e98-b2eb-d92870084461"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PollSession",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"agendaId\": \"677ca836-8aeb-404d-a2f1-fd914b673e62\",\r\n    \"pollDuration\": 10\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pollSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pollSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"vote\": true,\r\n    \"pollSessionId\": \"63502226-40b7-4e98-b2eb-d92870084461\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HEROKU",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://user-info.herokuapp.com/users/19839091069",
+					"protocol": "https",
+					"host": [
+						"user-info",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"users",
+						"19839091069"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

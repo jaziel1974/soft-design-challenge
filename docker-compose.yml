@@ -21,6 +21,6 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URL: mongodb://mongoadmin:Mongo2024@localhost:27017/pollsystem
+      - SPRING_PROFILES_ACTIVE=cloud
     depends_on:
       - mongo
